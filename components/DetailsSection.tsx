@@ -3,10 +3,10 @@ import React from 'react';
 
 const DetailsSection: React.FC = () => {
   const nftTiers = [
-    { name: 'Snoozer', rarity: '60%', benefits: ['Meme Multiplier 1x', 'Doze Chat Access'], color: 'text-gray-400', img: 'media/img/nft/tier_snoozer.png' },
-    { name: 'Dreamer', rarity: '30%', benefits: ['Staking 1.5x', 'Private Alpha', 'DAO Voting'], color: 'text-emerald-400', img: 'media/img/nft/tier_dreamer.png' },
-    { name: 'Waker', rarity: '8%', benefits: ['Revenue Share 1%', 'Early Merch', 'VIP WL'], color: 'text-purple-400', img: 'media/img/nft/tier_waker.png' },
-    { name: 'Enlightened', rarity: '2%', benefits: ['Rev-Share 5%', 'Exclusive Events', 'Advisory Role'], color: 'text-yellow-400', img: 'media/img/nft/tier_enlightened.png' },
+    { name: 'Snoozer', rarity: '60%', benefits: ['Meme Multiplier 1x', 'Doze Chat Access'], color: 'text-gray-400', img: './media/img/nft/tier_snoozer.png' },
+    { name: 'Dreamer', rarity: '30%', benefits: ['Staking 1.5x', 'Private Alpha', 'DAO Voting'], color: 'text-emerald-400', img: './media/img/nft/tier_dreamer.png' },
+    { name: 'Waker', rarity: '8%', benefits: ['Revenue Share 1%', 'Early Merch', 'VIP WL'], color: 'text-purple-400', img: './media/img/nft/tier_waker.png' },
+    { name: 'Enlightened', rarity: '2%', benefits: ['Rev-Share 5%', 'Exclusive Events', 'Advisory Role'], color: 'text-yellow-400', img: './media/img/nft/tier_enlightened.png' },
   ];
 
   return (
@@ -66,7 +66,7 @@ const DetailsSection: React.FC = () => {
         <div className="relative group">
           <div className="aspect-square glass-effect rounded-[3rem] p-4 -rotate-2 border-white/10 shadow-2xl overflow-hidden group-hover:rotate-0 transition-transform duration-500">
              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 to-purple-500/30 animate-pulse"></div>
-             <img src="media/img/home/mint_hero.png" className="rounded-[2.5rem] w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" />
+             <img src="./media/img/home/mint_hero.png" className="rounded-[2.5rem] w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" />
              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-black/90 px-6 py-3 rounded-full text-sm font-black border border-emerald-500 shadow-2xl tracking-[0.2em]">AWAKENING PROTOCOL</div>
              </div>

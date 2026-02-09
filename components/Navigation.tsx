@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, scroll
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
           <div className="w-12 h-12 relative overflow-hidden rounded-full border-2 border-emerald-500/30 bg-[#0b0e14] shadow-[0_0_15px_rgba(16,185,129,0.2)]">
             <img 
-              src="media/img/home/logo.png" 
+              src="./media/img/home/logo.png" 
               alt="DozeBun Logo" 
               className="w-full h-full object-cover scale-150 translate-y-2 group-hover:scale-125 transition-transform duration-500"
             />
