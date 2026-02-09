@@ -1,0 +1,8 @@
+{
+  "name": "Solana Pulse - NFT & Swap Hub",
+  "description": "A high-performance Solana ecosystem portal featuring NFT minting, token swapping for pump.fun assets, and project insights powered by Gemini AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

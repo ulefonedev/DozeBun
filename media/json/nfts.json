@@ -1,0 +1,23 @@
+
+{
+  "collectionName": "DozeBun Genesis",
+  "symbol": "DOZE",
+  "totalSupply": 2500,
+  "mintPrice": 0.5,
+  "currency": "SOL",
+  "baseUri": "media/img/nft/",
+  "attributes": [
+    "Eyes",
+    "Fur",
+    "Hat",
+    "Outfit",
+    "Expression",
+    "Accessory"
+  ],
+  "rarities": {
+    "Snoozer": 0.60,
+    "Dreamer": 0.30,
+    "Waker": 0.08,
+    "Enlightened": 0.02
+  }
+}
