@@ -38,7 +38,11 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ wallet, nfts, onClose, onDi
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-[1.8rem] bg-gradient-to-tr from-emerald-500 to-purple-600 p-0.5 shadow-xl">
                <div className="w-full h-full bg-[#0b0e14] rounded-[1.7rem] flex items-center justify-center text-4xl overflow-hidden">
-                 <img src="/media/img/home/logo.png" className="w-full h-full object-cover scale-150 translate-y-2" alt="Profile Avatar" />
+                 <img 
+                   src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/logo.png" 
+                   className="w-full h-full object-cover scale-150 translate-y-2" 
+                   alt="Profile Avatar" 
+                 />
                </div>
             </div>
             <div className="text-left">

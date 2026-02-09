@@ -16,7 +16,7 @@ const HomeSection: React.FC = () => {
         <div className="relative w-64 h-64 md:w-80 md:h-80 mb-4 floating">
            <div className="absolute inset-0 bg-emerald-500/20 blur-[60px] rounded-full animate-pulse"></div>
            <img 
-             src="media/img/home/hero_bunny.png" 
+             src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/hero_bunny.png" 
              alt="DozeBun Hero" 
              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(16,185,129,0.3)]"
            />
@@ -65,14 +65,14 @@ const HomeSection: React.FC = () => {
         </div>
         <div className="relative h-[450px] bg-black/40 rounded-[3rem] overflow-hidden border border-white/5 flex items-center justify-center shadow-inner group">
            <img 
-             src="media/img/home/artist_working.png" 
+             src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/artist_working.png" 
              alt="DozeBun Artist Working" 
              className="h-full w-auto object-contain group-hover:scale-110 transition-transform duration-700"
            />
         </div>
       </section>
 
-      {/* Restante da Home... */}
+      {/* Join the Burrow (Final CTA) */}
       <section className="text-center py-32 space-y-12 w-full max-w-4xl relative">
          <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] -z-10"></div>
          <h2 className="text-7xl font-black font-display tracking-tighter leading-tight uppercase">{t('cta_title')}</h2>

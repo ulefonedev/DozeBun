@@ -18,6 +18,9 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl, LAMPORTS_PER_SOL } from '@solana/web3.js';
 
+// Base URL for Raw GitHub Assets
+const RAW_ASSETS_BASE = "https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img";
+
 // Create I18n Context
 const I18nContext = createContext<{
   lang: Language;
@@ -28,8 +31,8 @@ const I18nContext = createContext<{
 export const useI18n = () => useContext(I18nContext);
 
 const INITIAL_MARKETPLACE: NFTMetadata[] = [
-  { id: 101, name: "DozeBun #101", rarity: "Waker", image: "media/img/nft/tier_waker.png", price: 1.5, owner: "BunnyLord" },
-  { id: 102, name: "DozeBun #102", rarity: "Enlightened", image: "media/img/nft/tier_enlightened.png", price: 5.0, owner: "SolWhale" },
+  { id: 101, name: "DozeBun #101", rarity: "Waker", image: `${RAW_ASSETS_BASE}/nft/tier_waker.png`, price: 1.5, owner: "BunnyLord" },
+  { id: 102, name: "DozeBun #102", rarity: "Enlightened", image: `${RAW_ASSETS_BASE}/nft/tier_enlightened.png`, price: 5.0, owner: "SolWhale" },
 ];
 
 const AppContent: React.FC = () => {

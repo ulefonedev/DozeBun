@@ -62,7 +62,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
         id,
         name: `DozeBun #${id}`,
         rarity: selectedRarity.charAt(0).toUpperCase() + selectedRarity.slice(1),
-        image: `media/img/nft/tier_${selectedRarity}.png`, 
+        image: `https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/nft/tier_${selectedRarity}.png`, 
         lore,
         owner: publicKey.toBase58()
       };
@@ -118,7 +118,11 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
           <div className="text-center py-16 space-y-8">
             <div className="w-48 h-48 mx-auto relative">
               <div className="relative w-full h-full bg-[#0b0e14] rounded-[3rem] border border-white/10 flex items-center justify-center overflow-hidden">
-                <img src="media/img/home/mint_bunny.png" className="w-full h-full object-cover scale-150 translate-y-4" alt="Mint Rabbit" />
+                <img 
+                  src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/mint_bunny.png" 
+                  className="w-full h-full object-cover scale-150 translate-y-4" 
+                  alt="Mint Rabbit" 
+                />
               </div>
             </div>
           </div>
