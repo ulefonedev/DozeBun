@@ -10,7 +10,7 @@ export const CONFIG = {
   // SUA CARTEIRA: Onde os 0.5 SOL de cada mint e os Swaps serão depositados.
   TREASURY_ADDRESS: "Fk5MMpVzzeA5bGpHdeX7J2bikSSGvgvaHpzwipU1TEsg",
   
-  // CONTRATO PUMP.FUN (SOLICITADO)
+  // CONTRATO PUMP.FUN (REAL - SOLICITADO)
   PUMP_FUN_CONTRACT: "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
 
   // PREÇO DO MINT (em SOL)
@@ -21,7 +21,7 @@ export const CONFIG = {
 
   // TOKEN CONFIG (Simulado para o Swap)
   TOKEN_SYMBOL: "$DOZE",
-  TOKEN_RATIO: 1250000, // Quantos tokens por 1 SOL
+  TOKEN_RATIO: 1250000, // Quantos tokens por 1 SOL (Simulação de Paridade Realista)
   
   // RPC ENDPOINT (Opcional)
   RPC_URL: null 

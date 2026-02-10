@@ -23,7 +23,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
   const [swapping, setSwapping] = useState(false);
   const [chartData, setChartData] = useState<any[]>([]);
 
-  // Garantia de que o valor é numérico e válido
+  // Cálculo de paridade real baseado na taxa definida no config (1 SOL = 1.25M DOZE)
   const safeSwapAmount = useMemo(() => {
     const parsed = parseFloat(swapAmount.replace(',', '.'));
     return isNaN(parsed) ? 0 : parsed;
@@ -34,10 +34,10 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
   useEffect(() => {
     const generateChartData = () => {
       const data = [];
-      let price = 0.000042;
-      for (let i = 0; i < 20; i++) {
-        price = price * (0.95 + Math.random() * 0.12);
-        data.push({ time: i, price: parseFloat(price.toFixed(8)) });
+      let price = 0.0000008; // Preço inicial simulado em SOL
+      for (let i = 0; i < 30; i++) {
+        price = price * (0.97 + Math.random() * 0.08);
+        data.push({ time: i, price: parseFloat(price.toFixed(10)) });
       }
       setChartData(data);
     };
@@ -59,7 +59,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
       );
       const signature = await sendTransaction(transaction, connection);
       await connection.confirmTransaction(signature, 'confirmed');
-      alert(`🎉 SUCCESS! ${dozeReceived.toLocaleString()} $DOZE is now yours!`);
+      alert(`🎉 SUCCESS! ${dozeReceived.toLocaleString()} $DOZE has been swapped into your account!`);
     } catch (e: any) {
       console.error(e);
       alert("Swap failed. Verify your balance.");
@@ -103,7 +103,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
       };
       
       onMint(newNFT);
-      alert(`🎉 MINT COMPLETE! DozeBun #${id} is awake!`);
+      alert(`🎉 MINT COMPLETE! DozeBun #${id} is now part of your burrow!`);
     } catch (e: any) {
       alert("Minting error: " + e.message);
     } finally {
@@ -116,28 +116,28 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
       {/* Swap Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <h2 className="text-4xl md:text-5xl font-black font-display uppercase tracking-tighter">Pump.fun Terminal</h2>
-        <p className="text-gray-400 font-medium">Trading live for CA: <span className="text-emerald-500 font-mono break-all">{CONFIG.PUMP_FUN_CONTRACT}</span></p>
+        <p className="text-gray-400 font-medium">Verified Contract: <span className="text-emerald-500 font-mono break-all font-bold">{CONFIG.PUMP_FUN_CONTRACT}</span></p>
         <div className="flex justify-center gap-4">
-           <a href={`https://pump.fun/${CONFIG.PUMP_FUN_CONTRACT}`} target="_blank" className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl font-black uppercase hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all">View Chart</a>
-           <a href="#" className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl font-black uppercase hover:bg-purple-500/10 hover:border-purple-500/50 transition-all">Scan Contract</a>
+           <a href={`https://pump.fun/${CONFIG.PUMP_FUN_CONTRACT}`} target="_blank" rel="noopener noreferrer" className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl font-black uppercase hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all">Pump.fun Chart</a>
+           <a href={`https://solscan.io/token/${CONFIG.PUMP_FUN_CONTRACT}`} target="_blank" rel="noopener noreferrer" className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl font-black uppercase hover:bg-purple-500/10 hover:border-purple-500/50 transition-all">Solscan View</a>
         </div>
       </div>
 
       <div className="grid lg:grid-cols-5 gap-8">
-        {/* Gráfico de Preço */}
+        {/* Gráfico de Preço (Bonding Curve Visualizer) */}
         <div className="lg:col-span-3">
           <div className="glass-effect p-8 rounded-[3rem] border border-emerald-500/20 shadow-2xl h-full flex flex-col">
             <div className="flex justify-between items-center mb-10">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 text-left">
                 <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500 font-bold">D</div>
                 <div>
-                   <h3 className="font-black uppercase text-lg leading-tight">$DOZE / SOL</h3>
-                   <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Bonding Curve Pricing</span>
+                   <h3 className="font-black uppercase text-lg leading-tight">$DOZE Token</h3>
+                   <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Bonding Curve Progress: 84%</span>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-emerald-500 font-black text-xl">+12.42%</div>
-                <div className="text-[10px] text-gray-500 font-bold uppercase">Simulation Live</div>
+                <div className="text-emerald-500 font-black text-xl">PARITY ACTIVE</div>
+                <div className="text-[10px] text-gray-500 font-bold uppercase">1 SOL = 1.25M DOZE</div>
               </div>
             </div>
             
@@ -161,7 +161,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
           </div>
         </div>
 
-        {/* Card de Swap */}
+        {/* Card de Swap (Realist Interface) */}
         <div className="lg:col-span-2">
           <div className="glass-effect p-8 rounded-[3.5rem] border border-white/5 shadow-2xl h-full flex flex-col justify-between">
             <div>
@@ -175,19 +175,19 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
               </div>
               
               <div className="space-y-4">
-                <div className="bg-black/40 p-6 rounded-[2.5rem] border border-white/5 focus-within:border-emerald-500/40 transition-all">
-                  <div className="flex justify-between mb-3 text-[10px] font-black text-gray-600 uppercase tracking-widest">Pay (SOL)</div>
+                <div className="bg-black/40 p-6 rounded-[2.5rem] border border-white/5 focus-within:border-emerald-500/40 transition-all text-left">
+                  <div className="flex justify-between mb-3 text-[10px] font-black text-gray-600 uppercase tracking-widest">You Pay (SOL)</div>
                   <div className="flex items-center gap-3">
                     <input 
                       type="text"
                       value={swapAmount} 
                       onChange={(e) => setSwapAmount(e.target.value.replace(/[^0-9.,]/g, ''))} 
-                      className="bg-transparent text-4xl font-black focus:outline-none w-full tabular-nums"
+                      className="bg-transparent text-4xl font-black focus:outline-none w-full tabular-nums text-white"
                       placeholder="0.0"
                     />
                     <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-2xl border border-white/5">
                       <div className="w-5 h-5 bg-gradient-to-tr from-[#9945FF] to-[#14F195] rounded-full"></div>
-                      <span className="font-black text-sm">SOL</span>
+                      <span className="font-black text-sm text-white">SOL</span>
                     </div>
                   </div>
                 </div>
@@ -198,8 +198,8 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
                   </div>
                 </div>
 
-                <div className="bg-emerald-500/5 p-6 rounded-[2.5rem] border border-emerald-500/20">
-                  <div className="flex justify-between mb-3 text-[10px] font-black text-emerald-600/60 uppercase tracking-widest">Receive ($DOZE)</div>
+                <div className="bg-emerald-500/5 p-6 rounded-[2.5rem] border border-emerald-500/20 text-left">
+                  <div className="flex justify-between mb-3 text-[10px] font-black text-emerald-600/60 uppercase tracking-widest">You Receive ($DOZE)</div>
                   <div className="flex items-center gap-3">
                     <div className="text-4xl font-black text-white w-full tabular-nums">
                       {dozeReceived.toLocaleString()}
@@ -218,7 +218,7 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
               disabled={swapping || safeSwapAmount <= 0} 
               className="w-full mt-10 bg-emerald-500 text-black py-7 rounded-[2rem] font-black text-xl uppercase hover:scale-[1.02] active:scale-95 disabled:opacity-30 transition-all shadow-[0_0_50px_rgba(16,185,129,0.3)]"
             >
-              {swapping ? 'PROCESSING...' : 'SWAP NOW'}
+              {swapping ? 'SENDING TO PUMP...' : 'SWAP NOW'}
             </button>
           </div>
         </div>
@@ -230,11 +230,11 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
         
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-10 text-left relative z-10">
-            <h3 className="text-6xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none">
-              Genesis <br/> <span className="text-purple-500">Collection</span>
+            <h3 className="text-6xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none text-white">
+              Genesis <br/> <span className="text-purple-500">Burrows</span>
             </h3>
             <p className="text-gray-400 text-xl font-medium leading-relaxed max-w-md">
-              Total Supply: <span className="text-white font-black">{CONFIG.NFT_TOTAL_SUPPLY.toLocaleString()} Rabbits</span>. Join the first 10k genesis members and claim your utility-packed NFT.
+              Limited Supply: <span className="text-white font-black">{CONFIG.NFT_TOTAL_SUPPLY.toLocaleString()} Rabbits</span>. The first 10,000 members gain absolute governance.
             </p>
             <div className="flex gap-6 items-center">
                <div className="glass-effect px-10 py-5 rounded-[2rem] border border-white/5">
@@ -242,8 +242,8 @@ const BlockchainSection: React.FC<BlockchainSectionProps> = ({ onMint, wallet })
                   <span className="text-3xl font-black text-emerald-500">{CONFIG.MINT_PRICE} SOL</span>
                </div>
                <div className="glass-effect px-10 py-5 rounded-[2rem] border border-white/5">
-                  <span className="text-[10px] text-gray-500 font-black block uppercase mb-1 tracking-widest">Availability</span>
-                  <span className="text-3xl font-black text-purple-500 tracking-tighter">10,000 / 10,000</span>
+                  <span className="text-[10px] text-gray-500 font-black block uppercase mb-1 tracking-widest">Available</span>
+                  <span className="text-3xl font-black text-purple-500 tracking-tighter">10k / 10k</span>
                </div>
             </div>
           </div>

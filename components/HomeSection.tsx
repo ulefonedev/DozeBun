@@ -5,6 +5,13 @@ import { TEAM, ROADMAP } from '../constants';
 
 const HomeSection: React.FC = () => {
   const { t } = useI18n();
+  const PREVIEW_BASE = "https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/preview";
+
+  const banners = [
+    `${PREVIEW_BASE}/banner01.webm`,
+    `${PREVIEW_BASE}/banner02.webm`,
+    `${PREVIEW_BASE}/banner03.webm`,
+  ];
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 space-y-48 flex flex-col items-center">
@@ -12,7 +19,6 @@ const HomeSection: React.FC = () => {
       <div className="text-center space-y-10 py-12 relative flex flex-col items-center w-full">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-emerald-500/10 blur-[120px] -z-10"></div>
         
-        {/* Hero Character Image */}
         <div className="relative w-64 h-64 md:w-96 md:h-96 mb-4 floating">
            <div className="absolute inset-0 bg-emerald-500/20 blur-[80px] rounded-full animate-pulse"></div>
            <img 
@@ -67,8 +73,37 @@ const HomeSection: React.FC = () => {
         </div>
       </section>
 
+      {/* Rotating Banners Section */}
+      <section className="w-full overflow-hidden bg-black/20 py-10 border-y border-white/5">
+        <div className="flex gap-10 animate-infinite-scroll">
+          {[...banners, ...banners].map((url, i) => (
+            <div key={i} className="min-w-[300px] md:min-w-[500px] h-[300px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl flex-shrink-0">
+               <video 
+                src={url} 
+                className="w-full h-full object-cover" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              />
+            </div>
+          ))}
+        </div>
+        <style>{`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-infinite-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+          }
+        `}</style>
+      </section>
+
       {/* Roadmap Section */}
-      <section className="w-full max-w-7xl relative">
+      <section className="w-full max-w-7xl relative px-4">
         <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-6">
            <h3 className="text-5xl md:text-6xl font-black font-display uppercase tracking-tighter">{t('roadmap_title')}</h3>
            <div className="h-px flex-1 bg-white/10 hidden md:block mx-12"></div>
@@ -77,7 +112,7 @@ const HomeSection: React.FC = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ROADMAP.map((item, i) => (
-            <div key={i} className="glass-effect p-8 rounded-[3rem] border border-white/5 hover:border-emerald-500/30 transition-all group relative overflow-hidden">
+            <div key={i} className="glass-effect p-8 rounded-[3rem] border border-white/5 hover:border-emerald-500/30 transition-all group relative overflow-hidden text-left">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
               <div className="flex justify-between items-start mb-6">
                  <span className="text-[10px] font-black text-gray-600 uppercase tracking-widest">{item.quarter}</span>
@@ -94,7 +129,7 @@ const HomeSection: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="w-full max-w-7xl">
+      <section className="w-full max-w-7xl px-4">
         <div className="text-center mb-20 space-y-4">
            <h3 className="text-5xl font-black font-display uppercase tracking-tighter">{t('team_title')}</h3>
            <p className="text-gray-500 uppercase text-xs font-black tracking-[0.4em]">The Visionaries Behind the Alarm</p>
@@ -117,7 +152,7 @@ const HomeSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Join the Burrow (Final CTA) */}
+      {/* Join the Burrow */}
       <section className="text-center py-32 space-y-12 w-full max-w-4xl relative">
          <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] -z-10"></div>
          <h2 className="text-7xl md:text-8xl font-black font-display tracking-tighter leading-tight uppercase">{t('cta_title')}</h2>
