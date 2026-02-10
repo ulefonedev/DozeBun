@@ -38,12 +38,12 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, scroll
           <span className="text-xl font-black font-display tracking-tighter group-hover:text-emerald-400 transition-colors uppercase">$DOZE</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-1 glass-effect px-1 py-1 rounded-2xl">
+        <div className="hidden lg:flex items-center gap-1 glass-effect px-1 py-1 rounded-2xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2 rounded-xl text-xs font-black transition-all duration-200 uppercase tracking-widest ${
+              className={`px-5 py-2 rounded-xl text-[10px] font-black transition-all duration-200 uppercase tracking-widest ${
                 activeTab === tab.id
                   ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'

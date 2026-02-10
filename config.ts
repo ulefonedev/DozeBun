@@ -10,13 +10,19 @@ export const CONFIG = {
   // SUA CARTEIRA: Onde os 0.5 SOL de cada mint e os Swaps serão depositados.
   TREASURY_ADDRESS: "Fk5MMpVzzeA5bGpHdeX7J2bikSSGvgvaHpzwipU1TEsg",
   
+  // CONTRATO PUMP.FUN (SOLICITADO)
+  PUMP_FUN_CONTRACT: "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump",
+
   // PREÇO DO MINT (em SOL)
   MINT_PRICE: 0.5,
   
+  // NFT CONFIG - ATUALIZADO PARA 10.000
+  NFT_TOTAL_SUPPLY: 10000,
+
   // TOKEN CONFIG (Simulado para o Swap)
   TOKEN_SYMBOL: "$DOZE",
   TOKEN_RATIO: 1250000, // Quantos tokens por 1 SOL
   
-  // RPC ENDPOINT (Opcional: use um provedor como Helius ou QuickNode para mais velocidade na Mainnet)
+  // RPC ENDPOINT (Opcional)
   RPC_URL: null 
 };

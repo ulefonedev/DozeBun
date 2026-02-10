@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useI18n } from '../App';
+import { TEAM, ROADMAP } from '../constants';
 
 const HomeSection: React.FC = () => {
   const { t } = useI18n();
@@ -63,6 +64,56 @@ const HomeSection: React.FC = () => {
              className="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700"
              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/500?text=ARTIST")}
            />
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section className="w-full max-w-7xl relative">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-6">
+           <h3 className="text-5xl md:text-6xl font-black font-display uppercase tracking-tighter">{t('roadmap_title')}</h3>
+           <div className="h-px flex-1 bg-white/10 hidden md:block mx-12"></div>
+           <span className="text-emerald-500 font-black tracking-widest text-xs uppercase bg-emerald-500/10 px-6 py-2 rounded-full border border-emerald-500/20">Phase 01 Active</span>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {ROADMAP.map((item, i) => (
+            <div key={i} className="glass-effect p-8 rounded-[3rem] border border-white/5 hover:border-emerald-500/30 transition-all group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+              <div className="flex justify-between items-start mb-6">
+                 <span className="text-[10px] font-black text-gray-600 uppercase tracking-widest">{item.quarter}</span>
+                 <div className={`w-3 h-3 rounded-full ${
+                   item.status === 'completed' ? 'bg-emerald-500' : 
+                   item.status === 'ongoing' ? 'bg-yellow-500 animate-pulse' : 'bg-white/10'
+                 }`}></div>
+              </div>
+              <h4 className="text-2xl font-black mb-4 uppercase tracking-tighter leading-tight group-hover:text-emerald-400 transition-colors">{item.title}</h4>
+              <p className="text-gray-500 text-sm leading-relaxed font-medium">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="w-full max-w-7xl">
+        <div className="text-center mb-20 space-y-4">
+           <h3 className="text-5xl font-black font-display uppercase tracking-tighter">{t('team_title')}</h3>
+           <p className="text-gray-500 uppercase text-xs font-black tracking-[0.4em]">The Visionaries Behind the Alarm</p>
+        </div>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          {TEAM.map((member, i) => (
+            <div key={i} className="group flex flex-col items-center">
+              <div className="relative mb-8">
+                <div className="absolute inset-0 bg-emerald-500/20 blur-[40px] opacity-0 group-hover:opacity-100 transition-all rounded-full"></div>
+                <div className="w-32 h-32 rounded-[2.5rem] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 ring-2 ring-white/5 ring-offset-8 ring-offset-[#0b0e14] group-hover:ring-emerald-500/50">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700" />
+                </div>
+              </div>
+              <h4 className="font-black text-xl uppercase tracking-tighter mb-1 text-center">{member.name}</h4>
+              <p className="text-emerald-500 text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-center">{member.role}</p>
+              <p className="text-gray-600 text-[11px] text-center leading-relaxed font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 max-w-[180px]">{member.bio}</p>
+            </div>
+          ))}
         </div>
       </section>
 

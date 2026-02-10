@@ -2,7 +2,7 @@
 {
   "collectionName": "DozeBun Genesis",
   "symbol": "DOZE",
-  "totalSupply": 2500,
+  "totalSupply": 10000,
   "mintPrice": 0.5,
   "currency": "SOL",
   "baseUri": "media/img/nft/",

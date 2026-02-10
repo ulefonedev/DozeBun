@@ -92,12 +92,15 @@ const AppContent: React.FC = () => {
         onOpenProfile={() => setShowProfile(true)}
       />
 
-      <main className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+      <main className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
         {renderContent()}
       </main>
 
       <footer className="border-t border-white/10 py-12 px-4 text-center text-gray-500 text-sm">
-        <p className="text-emerald-400 font-black mb-2 tracking-[0.4em] text-lg">$DOZE TOKEN</p>
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-emerald-400 font-black tracking-[0.4em] text-lg">$DOZE TOKEN</p>
+          <p className="opacity-40">© 2026 DOZEBUN ECOSYSTEM. ALL RIGHTS RESERVED.</p>
+        </div>
       </footer>
 
       <FloatingSocials />
