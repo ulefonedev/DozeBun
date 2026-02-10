@@ -24,25 +24,26 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, scroll
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 glass-effect' : 'py-8 bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 glass-effect shadow-2xl' : 'py-8 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
-          <div className="w-12 h-12 relative overflow-hidden rounded-full border-2 border-emerald-500/30 bg-[#0b0e14] shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+          <div className="w-12 h-12 relative overflow-hidden rounded-xl border border-emerald-500/30 bg-[#0b0e14]">
             <img 
               src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/logo.png" 
               alt="DozeBun Logo" 
-              className="w-full h-full object-cover scale-150 translate-y-2 group-hover:scale-125 transition-transform duration-500"
+              className="w-full h-full object-cover scale-150 translate-y-2 group-hover:scale-110 transition-transform duration-500"
+              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/150?text=DOZE")}
             />
           </div>
-          <span className="text-xl font-bold font-display tracking-tight group-hover:text-emerald-400 transition-colors uppercase">$DOZE</span>
+          <span className="text-xl font-black font-display tracking-tighter group-hover:text-emerald-400 transition-colors uppercase">$DOZE</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-1 glass-effect px-1 py-1 rounded-full">
+        <div className="hidden md:flex items-center gap-1 glass-effect px-1 py-1 rounded-2xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-5 py-2 rounded-xl text-xs font-black transition-all duration-200 uppercase tracking-widest ${
                 activeTab === tab.id
                   ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -58,7 +59,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab, scroll
           {wallet.connected && (
             <button 
               onClick={onOpenProfile}
-              className="bg-white/5 border border-white/10 hover:bg-white/10 w-10 h-10 rounded-full flex items-center justify-center transition-all group"
+              className="bg-white/5 border border-white/10 hover:border-emerald-500/50 w-10 h-10 rounded-xl flex items-center justify-center transition-all group"
             >
               <span className="text-xl group-hover:scale-110 transition-transform">🐰</span>
             </button>

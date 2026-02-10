@@ -11,40 +11,33 @@ const HomeSection: React.FC = () => {
       <div className="text-center space-y-10 py-12 relative flex flex-col items-center w-full">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-emerald-500/10 blur-[120px] -z-10"></div>
         
-        {/* Hero Character Image - LINK RAW GITHUB */}
-        <div className="relative w-64 h-64 md:w-80 md:h-80 mb-4 floating">
-           <div className="absolute inset-0 bg-emerald-500/20 blur-[60px] rounded-full animate-pulse"></div>
+        {/* Hero Character Image */}
+        <div className="relative w-64 h-64 md:w-96 md:h-96 mb-4 floating">
+           <div className="absolute inset-0 bg-emerald-500/20 blur-[80px] rounded-full animate-pulse"></div>
            <img 
              src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/hero_bunny.png" 
              alt="DozeBun Hero" 
-             className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+             className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_50px_rgba(16,185,129,0.4)]"
+             onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/400?text=BUNNY")}
            />
         </div>
 
-        <h1 className="text-6xl md:text-9xl font-bold font-display leading-tight max-w-5xl mx-auto uppercase">
+        <h1 className="text-6xl md:text-9xl font-black font-display leading-tight max-w-5xl mx-auto uppercase tracking-tighter">
           {t('hero_title')}
         </h1>
-        <p className="text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed italic">
+        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed italic opacity-80 font-medium">
           {t('hero_subtitle')}
         </p>
         
         <div className="flex flex-col items-center gap-16 max-w-4xl mx-auto mt-20">
-          <div className="space-y-6 text-center">
-            <h2 className="text-3xl font-bold font-display text-emerald-400 uppercase tracking-widest">Waking Up for $DOZE</h2>
-            <p className="text-gray-400 text-xl leading-relaxed">
-              DozeBun is more than a collection—it's a movement. A rabbit that overslept is now waking up to a world of NFTs, 
-              bringing humor, creativity, and the power of the $DOZE token to revolutionize the Solana meme market. 
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10 w-full">
-            <div className="glass-effect p-10 rounded-3xl border-l-8 border-red-500 text-left hover:scale-[1.02] transition-transform">
+          <div className="grid md:grid-cols-2 gap-8 w-full">
+            <div className="glass-effect p-10 rounded-[3rem] border-l-8 border-red-500 text-left hover:scale-[1.02] transition-transform">
               <h4 className="font-black text-2xl text-red-500 mb-3 flex items-center gap-3 uppercase">
                 <span>💤</span> {t('problem_title')}
               </h4>
               <p className="text-gray-400 text-lg">{t('problem_desc')}</p>
             </div>
-            <div className="glass-effect p-10 rounded-3xl border-l-8 border-emerald-500 text-left hover:scale-[1.02] transition-transform shadow-[0_10px_40px_rgba(16,185,129,0.1)]">
+            <div className="glass-effect p-10 rounded-[3rem] border-l-8 border-emerald-500 text-left hover:scale-[1.02] transition-transform shadow-[0_10px_40px_rgba(16,185,129,0.1)]">
               <h4 className="font-black text-2xl text-emerald-500 mb-3 flex items-center gap-3 uppercase">
                 <span>⏰</span> {t('solution_title')}
               </h4>
@@ -54,27 +47,29 @@ const HomeSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Meme Factory Section - LINK RAW GITHUB */}
-      <section className="glass-effect rounded-[4rem] p-16 grid lg:grid-cols-2 gap-16 items-center border border-emerald-500/10 w-full max-w-7xl shadow-2xl">
-        <div className="space-y-8">
-          <h2 className="text-5xl font-bold font-display leading-tight text-emerald-400 uppercase">{t('factory_title')}</h2>
-          <p className="text-xl text-gray-400 leading-relaxed">
+      {/* Meme Factory Section */}
+      <section className="glass-effect rounded-[4rem] p-12 lg:p-20 grid lg:grid-cols-2 gap-16 items-center border border-emerald-500/10 w-full max-w-7xl shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full"></div>
+        <div className="space-y-8 relative z-10">
+          <h2 className="text-5xl md:text-6xl font-black font-display leading-tight text-emerald-400 uppercase tracking-tighter">{t('factory_title')}</h2>
+          <p className="text-xl text-gray-400 leading-relaxed font-medium">
             {t('factory_desc')}
           </p>
         </div>
-        <div className="relative h-[450px] bg-black/40 rounded-[3rem] overflow-hidden border border-white/5 flex items-center justify-center shadow-inner group">
+        <div className="relative h-[450px] bg-black/40 rounded-[3rem] overflow-hidden border border-white/5 flex items-center justify-center shadow-inner group p-4">
            <img 
              src="https://raw.githubusercontent.com/ulefonedev/DozeBun/main/media/img/home/artist_working.png" 
              alt="DozeBun Artist Working" 
-             className="h-full w-auto object-contain group-hover:scale-110 transition-transform duration-700"
+             className="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700"
+             onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/500?text=ARTIST")}
            />
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Join the Burrow (Final CTA) */}
       <section className="text-center py-32 space-y-12 w-full max-w-4xl relative">
          <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] -z-10"></div>
-         <h2 className="text-7xl font-black font-display tracking-tighter leading-tight uppercase">{t('cta_title')}</h2>
+         <h2 className="text-7xl md:text-8xl font-black font-display tracking-tighter leading-tight uppercase">{t('cta_title')}</h2>
          <p className="text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
            {t('cta_desc')}
          </p>
