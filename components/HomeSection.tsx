@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { TEAM, ROADMAP } from '../constants';
 import { useI18n } from '../App';
 
 const HomeSection: React.FC = () => {
@@ -12,7 +11,7 @@ const HomeSection: React.FC = () => {
       <div className="text-center space-y-10 py-12 relative flex flex-col items-center w-full">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-emerald-500/10 blur-[120px] -z-10"></div>
         
-        {/* Hero Character Image */}
+        {/* Hero Character Image - LINK RAW GITHUB */}
         <div className="relative w-64 h-64 md:w-80 md:h-80 mb-4 floating">
            <div className="absolute inset-0 bg-emerald-500/20 blur-[60px] rounded-full animate-pulse"></div>
            <img 
@@ -55,7 +54,7 @@ const HomeSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Meme Factory Section */}
+      {/* Meme Factory Section - LINK RAW GITHUB */}
       <section className="glass-effect rounded-[4rem] p-16 grid lg:grid-cols-2 gap-16 items-center border border-emerald-500/10 w-full max-w-7xl shadow-2xl">
         <div className="space-y-8">
           <h2 className="text-5xl font-bold font-display leading-tight text-emerald-400 uppercase">{t('factory_title')}</h2>
@@ -72,7 +71,7 @@ const HomeSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Join the Burrow (Final CTA) */}
+      {/* Final CTA */}
       <section className="text-center py-32 space-y-12 w-full max-w-4xl relative">
          <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] -z-10"></div>
          <h2 className="text-7xl font-black font-display tracking-tighter leading-tight uppercase">{t('cta_title')}</h2>

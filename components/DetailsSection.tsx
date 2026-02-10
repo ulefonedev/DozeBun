@@ -14,7 +14,7 @@ const DetailsSection: React.FC = () => {
   return (
     <div className="animate-in fade-in slide-in-from-right-4 duration-1000 space-y-16">
       <div className="max-w-3xl">
-        <h2 className="text-4xl font-bold font-display mb-6">DozeBun Genesis Collection</h2>
+        <h2 className="text-4xl font-bold font-display mb-6 uppercase tracking-tighter">DozeBun Genesis Collection</h2>
         <p className="text-xl text-gray-400 leading-relaxed">
           The DozeBun NFTs are your proof of awakening. Every rabbit has a story, a dream, and a unique utility within the $DOZE ecosystem. 
         </p>
@@ -29,14 +29,14 @@ const DetailsSection: React.FC = () => {
                 <span className={`font-black uppercase tracking-tighter text-sm ${tier.color}`}>{tier.rarity} RARITY</span>
               </div>
             </div>
-            <h3 className={`text-3xl font-bold mb-4 font-display ${tier.color}`}>{tier.name}</h3>
+            <h3 className={`text-3xl font-bold mb-4 font-display uppercase tracking-tighter ${tier.color}`}>{tier.name}</h3>
           </div>
         ))}
       </div>
 
       <div className="glass-effect rounded-[3rem] p-12 grid lg:grid-cols-2 gap-16 items-center border border-white/10 shadow-2xl">
         <div className="space-y-8 text-left">
-          <h3 className="text-4xl font-bold font-display leading-tight">Instant Rabbit Awakening</h3>
+          <h3 className="text-4xl font-bold font-display leading-tight uppercase tracking-tighter">Instant Rabbit Awakening</h3>
           <p className="text-gray-400 text-lg">Our automated minting system is as simple as waking up after a long nap.</p>
         </div>
         <div className="relative group">
